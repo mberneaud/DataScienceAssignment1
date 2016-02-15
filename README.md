@@ -1,7 +1,7 @@
 # Data Science Assignment 1
 Contains the first group project in the Introduction to Collaborative Data Science course at the Hertie School of Governance.
 
-*Lecturer:* Christopher Gandrud
+**Lecturer:** Christopher Gandrud
 
 # Assignment description
 _[Link to presentation file on Christopher Gandrud's repo](https://github.com/HertieDataScience/SyllabusAndLectures/blob/master/LectureSlides/Lecture3/Lecture3.Rmd)_
@@ -22,7 +22,8 @@ Each pair will create a **new public GitHub repository**
 
 - **Another pair** makes a **pull request**. And this is discussed/merged.
 
+**Deadline: March 4th 2016**
+
 ## Collaborators
-* Lukas Müller [GitHub](https://github.com/LukasMueller89 "GitHub")
-* Daniel Limberg [GitHub](https://github.com/DanielLimberg "GitHub")
+* Jonas Markgraf [GitHub](https://github.com/jmarkgraf "GitHub")
 * Malte Berneaud-Kötz [GitHub](https://github.com/mberneaud "GitHub")
