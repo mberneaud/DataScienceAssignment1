@@ -3,7 +3,9 @@ Contains the first group project in the Introduction to Collaborative Data Scien
 
 *Lecturer:* Christopher Gandrud
 
-# Assignment description [Link to presentation file on Christopher Gandrud's repo](https://github.com/HertieDataScience/SyllabusAndLectures/blob/master/LectureSlides/Lecture3/Lecture3.Rmd)
+# Assignment description
+_[Link to presentation file on Christopher Gandrud's repo](https://github.com/HertieDataScience/SyllabusAndLectures/blob/master/LectureSlides/Lecture3/Lecture3.Rmd)_
+
 Each pair will create a **new public GitHub repository**
 
 - Must be **fully documented**, including with a **descriptive README.md**
