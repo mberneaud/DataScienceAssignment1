@@ -6,6 +6,8 @@ Contains the first group project in the Introduction to Collaborative Data Scien
 # Assignment description
 _[Link to presentation file on Christopher Gandrud's repo](https://github.com/HertieDataScience/SyllabusAndLectures/blob/master/LectureSlides/Lecture3/Lecture3.Rmd)_
 
+**Topic: File structures, version control, basic R data structures, and descriptive statistics**
+
 Each pair will create a **new public GitHub repository**
 
 - Must be **fully documented**, including with a **descriptive README.md**
