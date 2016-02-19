@@ -22,6 +22,16 @@ plot(Orange$age, Orange$circumference, type = "b",
      ylab = "Trunk circumference in mm")
 dev.print(png, "circumference_over_time.png", width = 1024, height = 720)
 
+# Additional plot made from summary.df created in other source file
+# Sourcing the data for summary.df
+source("summary_statistics.R")
+
+# creating a barplot of the different means
+barplot(summary.matrix, beside = TRUE,
+        main = "Summary statistics for circumference of all trees",
+        xlab = "Name of summary statistic",
+        ylab = "Tree trunk circumference")
+dev.print(png, "summaries_graped.png", width = 1024, height = 720)
 
 ###################
 # Cleaning up

@@ -18,13 +18,18 @@ summary(Orange)
 
 # calculated the mean circumference for all the trees
 mean.circumference <- mean(Orange$circumference)
-tree.mean.circumference <- tapply(Orange$circumference, Orange$Tree, mean)
+# calculated the means of each tree individually
+tree.means <- tapply(Orange$circumference, Orange$Tree, mean)
 
+# calculated the median circumference of all trees together
 median.circumference <- median(Orange$circumference)
-tree.median.circumference <- tapply(Orange$circumference, Orange$Tree, median)
+# calculated the median circumference of all trees individually
+tree.medians <- tapply(Orange$circumference, Orange$Tree, median)
 
+# calculated the standard deviation for all trees
 sd.circumference <- sd(Orange$circumference)
-tree.sd.circumference <- tapply(Orange$circumference, Orange$Tree, sd)
+# calculated the standard deviation for each tree individually
+tree.sds <- tapply(Orange$circumference, Orange$Tree, sd)
 
 # I grouped the three summary statistics I created for all tree IDs into a
 # data frame
@@ -32,11 +37,14 @@ tree.sd.circumference <- tapply(Orange$circumference, Orange$Tree, sd)
 # I created a vector containing the names of the trees, taking the IDs from the
 # names of the df created through tapply, as the df was ordered ascendingly
 # from lowest to highest
-tree.names <- paste("Tree No.", names(tree.mean.circumference), sep = " ")
+tree.names <- paste("Tree No.", names(tree.means), sep = " ")
 
-# I bound all the vectors together into a matrix which I converted to a df 
-summary.df <- data.frame(cbind(tree.names, tree.mean.circumference, tree.median.circumference,
-                    tree.sd.circumference))
+# I bound all the vectors together into a matrix
+summary.matrix <-  cbind(tree.means, tree.medians, tree.sds)
+
+# Then I made a df from it and added a new row with the tree.names vector
+summary.df <- data.frame(summary.matrix)
+summary.df$Tree.ID <- tree.names
 
 # Then I created some decent names for the columns
 colnames(summary.df) <- c("Tree ID", "Mean circumference", "Median circumference",
