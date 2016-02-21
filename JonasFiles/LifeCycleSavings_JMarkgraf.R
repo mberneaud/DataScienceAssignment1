@@ -76,14 +76,37 @@ boxplot(LifeCycleSavings$dpi)
 
 # Joint distributions: Potential explanatory variables for savings ratio
 
-ggplot(LifeCycleSavings, aes(dpi, sr)) + geom_point() + geom_smooth()
+ggplot(LifeCycleSavings, aes(dpi, sr)) + 
+  geom_point() + 
+  geom_smooth() + 
+  ggtitle("Savings-Per Capita GDP Correlation") +
+  xlab("Per Capita Income") +
+  ylab("Aggregated savings")
+ggsave(filename = "DpiSrCorr.png", path = NULL)
 cor.test(LifeCycleSavings$dpi, LifeCycleSavings$sr)
 
-ggplot(LifeCycleSavings, aes(pop15, sr)) + geom_point() + geom_smooth()
+ggplot(LifeCycleSavings, aes(pop15, sr)) + 
+  geom_point() + 
+  geom_smooth() +
+  ggtitle("Correlation between Share of Population under 15 Years and 
+          Aggregated Savings") +
+  xlab("Share of Population under 15 Years (%)") +
+  ylab("Aggregated Savings")
 cor.test(LifeCycleSavings$pop15, LifeCycleSavings$sr)
 
-ggplot(LifeCycleSavings, aes(pop75, sr)) + geom_point() + geom_smooth()
+ggplot(LifeCycleSavings, aes(pop75, sr)) + 
+  geom_point() + 
+  geom_smooth() +
+  ggtitle("Correlation between Share of Population older than 75 Years and
+          Aggregated Savings") +
+  xlab("Share of Population over 75 Years (%)") +
+  ylab("Aggregated Savings")
 cor.test(LifeCycleSavings$pop75, LifeCycleSavings$sr)
 
-ggplot(LifeCycleSavings, aes(ddpi, sr)) + geom_point() + geom_smooth()
+ggplot(LifeCycleSavings, aes(ddpi, sr)) + 
+  geom_point() + 
+  geom_smooth() +
+  ggtitle("Correlation between Per-Capita Income Growth and Aggregated Savings") +
+  xlab("Per-Capita Income Growth (%)") +
+  ylab("Aggregated Savings")
 cor.test(LifeCycleSavings$ddpi, LifeCycleSavings$sr)
