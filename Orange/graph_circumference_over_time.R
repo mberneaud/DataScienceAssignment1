@@ -30,7 +30,8 @@ source("summary_statistics.R")
 barplot(summary.matrix, beside = TRUE,
         main = "Summary statistics for circumference of all trees",
         xlab = "Name of summary statistic",
-        ylab = "Tree trunk circumference")
+        ylab = "Tree trunk circumference",
+        names.arg = names(summary.df$`Tree ID`))
 dev.print(png, "summaries_graped.png", width = 1024, height = 720)
 
 ###################

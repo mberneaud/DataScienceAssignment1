@@ -47,6 +47,6 @@ summary.df <- data.frame(summary.matrix)
 summary.df$Tree.ID <- tree.names
 
 # Then I created some decent names for the columns
-colnames(summary.df) <- c("Tree ID", "Mean circumference", "Median circumference",
-                          "Std.Dev. of circumference")
+colnames(summary.df) <- c("Mean circumference", "Median circumference",
+                          "Std.Dev. of circumference", "Tree ID")
 
