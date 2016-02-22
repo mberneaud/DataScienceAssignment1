@@ -4,7 +4,7 @@ The folder contains descriptive analysis - measures of central tendency as well 
 
 # Description of dataset and variables of interest
 
-The LifeCycleSavings dataset is a data frame containing information on the savings ratio between 1960 and 1970 over 50 years. It includes the following 5 variables (taken from R):
+The LifeCycleSavings dataset is a data frame containing information on the savings ratio between 1960 and 1970 over 50 countries. It includes the following 5 variables (taken from R):
 - sr:     aggregate personal savings
 - pop15:  % of population under 15
 - pop75:  %  of population over 75
