@@ -32,7 +32,7 @@ barplot(summary.matrix, beside = TRUE,
         xlab = "Name of summary statistic",
         ylab = "Tree trunk circumference",
         names.arg = names(summary.df$`Tree ID`))
-dev.print(png, "summaries_graped.png", width = 1024, height = 720)
+dev.print(png, "summaries_graphed.png", width = 1024, height = 720)
 
 ###################
 # Cleaning up
