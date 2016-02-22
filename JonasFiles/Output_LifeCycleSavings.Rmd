@@ -1,0 +1,162 @@
+---
+title: "Descriptive statistics of Life Cycle Savings R Database"
+author: "Jonas Markgraf"
+date: "22 February 2016"
+output: pdf_document
+---
+This file contains descriptive analysis - measures of central tendency as well as measures of dispersion - of the LifeCycleSavings R dataset. Furthermore, it will be looked into correlations between different variables. A particular focus will be on the two variables *Aggregated Savings (sr)* and *Per-Capita Income (dpi)*, thus testing the hypothesis that aggregated savings increase with higher per-capita income.
+
+# Description of dataset and variables of interest
+
+The LifeCycleSavings dataset is a data frame containing information on the savings ratio between 1960 and 1970 over 50 countries. It includes the following 5 variables (taken from R):
+
+- _**sr**_:     aggregate personal savings
+
+- _**pop15**_:  % of population under 15
+
+- _**pop75**_:  %  of population over 75
+
+- _**dpi**_:    real per-capital disposable income
+
+- _**ddpi**_:   % growth rate of dpi.
+
+# Guide to R code
+
+The R code in this folder conducts a number of descriptive statistics, namely measures of central tendency and measures of dispersion. Furthermore, correlations between variables were analyzed as a first step to identify potential explanatory variables (per-capita GDP; per-capita GDP growth; demographic factors) for the aggregated personal savings.
+
+Measures of central tendency: histograms, mean, median
+
+Measures of dispersion: standard deviation, range, interquartile range, boxplots
+
+Correlations: plots; significance tests
+
+# Descriptive Statistics
+
+```{r, include=FALSE}
+# Load packages
+library(ggplot2)
+library(knitr)
+library(dplyr)
+library(magrittr)
+
+# Load dataset
+library(datasets)
+data(LifeCycleSavings)
+
+# set working directory
+setwd("/Users/jonasmarkgraf/Desktop/DataScienceAssignment1/JonasFiles")
+
+# Detailed information about dataset, incl. description of variables
+?LifeCycleSavings
+```
+
+## Measures of central tendency
+
+First, we have a look at the key measures of central tendency starting with the means of the five variables:
+
+```{r}
+for (i in 1:5) {
+  LifeCycleSavings[, i] %>%
+    mean() %>%
+    paste(names(LifeCycleSavings)[i], ., "\n") %>%
+    cat()
+}
+```
+As a next step, the medians are calculated:
+```{r}
+for (i in 1:5) {
+  LifeCycleSavings[, i] %>%
+    median() %>%
+    paste(names(LifeCycleSavings)[i], ., "\n") %>%
+    cat()
+}
+```
+After the calculating mean and median, we have a look at the histograms of 2 key variables - Per-Capita Income and Aggregated Savings - in order to get an idea of the general distribution of those two variables:
+
+```{r}
+par(mfcol = c(1, 2))
+hist(LifeCycleSavings$dpi, 
+     main="Per-Capita Income Distribution", 
+     xlab="Per-Capita Income", 
+     ylab="Number of Countries")
+hist(LifeCycleSavings$sr, 
+     main="Aggregated Savings Distribution", 
+     xlab="Aggregated Savings", 
+     ylab="Number of Countries")
+```
+
+## Measures of dispersion
+
+In a next step, we analyse the measures of dispersion for the *LifeCycleSavings* R Dataset. We namely calculate the standard deviation for all five variables.
+
+```{r}
+## loop for standard deviation
+for (i in 1:5) {
+  LifeCycleSavings[, i] %>%
+    sd() %>%
+    paste(names(LifeCycleSavings)[i], ., "\n") %>%
+    cat()
+}
+```
+
+Furthermore, we look at the range and the interquartile range of the the key variables *aggregated savings* and *per-capita income*.
+
+```{r}
+## range for 2 key variables
+range(LifeCycleSavings$sr)
+range(LifeCycleSavings$dpi)
+
+## interquartile range for 2 key variables
+IQR(LifeCycleSavings$sr)
+IQR(LifeCycleSavings$dpi)
+```
+Eventually, we graphically plot the measures of central tendency and dispersion for our two key variables with two boxplots, which provides us with a graphical presentation of mean, range and interquartile range.
+```{r}
+par(mfcol = c(1, 2))
+boxplot(LifeCycleSavings$sr, main = "Aggregated Savings", ylab = "Savings")
+boxplot(LifeCycleSavings$dpi, main = "Per-Capita Income", ylab = "Income in $")
+```
+
+# Joint distributions
+
+In order to identify potential explanatory variables for the aggregated savings, we look into correlations between the the demographic variables (*pop15* and *pop75*) as well as different specifications of the economic situation in the respective country (absolute (*dpi*) and relative (*ddpi*) measures of per-capita income).
+
+## Demographic factors
+
+First we start with the two demographic variables: The share of population older than 75 years and younger than 15 years.
+```{r, "Demographic Factors"}
+ggplot(LifeCycleSavings, aes(pop15, sr)) + 
+  geom_point() + 
+  geom_smooth() +
+  ggtitle("Correlation between Share of Population under 15 Years and 
+          Aggregated Savings") +
+  xlab("Share of Population under 15 Years (%)") +
+  ylab("Aggregated Savings")
+
+ggplot(LifeCycleSavings, aes(pop75, sr)) + 
+  geom_point() + 
+  geom_smooth() +
+  ggtitle("Correlation between Share of Population older than 75 Years and
+          Aggregated Savings") +
+  xlab("Share of Population over 75 Years (%)") +
+  ylab("Aggregated Savings")
+```
+
+## Income factors
+
+Secondly, we look at the correlation of different income specifications (absolute per-capita income level *dpi* and relative per-capita income growth *ddpi*).
+```{r}
+ggplot(LifeCycleSavings, aes(dpi, sr)) + 
+  geom_point() + 
+  geom_smooth() + 
+  ggtitle("Savings-Per Capita GDP Correlation") +
+  xlab("Per Capita Income") +
+  ylab("Aggregated savings")
+
+ggplot(LifeCycleSavings, aes(ddpi, sr)) + 
+  geom_point() + 
+  geom_smooth() +
+  ggtitle("Correlation between Per-Capita Income Growth and Aggregated Savings") +
+  xlab("Per-Capita Income Growth (%)") +
+  ylab("Aggregated Savings")
+```
