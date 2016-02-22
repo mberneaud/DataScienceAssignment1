@@ -80,14 +80,14 @@ hist(LifeCycleSavings$dpi,
      xlab="Per-Capita Income", 
      ylab="Number of Countries")
 hist(LifeCycleSavings$sr, 
-     main="Aggregated Savings Distribution", 
+     main= "Savings Distribution", 
      xlab="Aggregated Savings", 
      ylab="Number of Countries")
 ```
 
 ## Measures of dispersion
 
-In a next step, we analyse the measures of dispersion for the *LifeCycleSavings* R Dataset. We namely calculate the standard deviation for all five variables.
+In a next step, we analyse the distribution for the variables in the *LifeCycleSavings* R Dataset. For that purpose, the standard deviation for all five variables is calculated.
 
 ```{r}
 ## loop for standard deviation
@@ -110,7 +110,7 @@ range(LifeCycleSavings$dpi)
 IQR(LifeCycleSavings$sr)
 IQR(LifeCycleSavings$dpi)
 ```
-Eventually, we graphically plot the measures of central tendency and dispersion for our two key variables with two boxplots, which provides us with a graphical presentation of mean, range and interquartile range.
+Eventually, we graphically plot the measures of central tendency and dispersion for our two key variables with two boxplots, which provides a graphical presentation of mean, range and interquartile range.
 ```{r}
 par(mfcol = c(1, 2))
 boxplot(LifeCycleSavings$sr, main = "Aggregated Savings", ylab = "Savings")
@@ -119,7 +119,7 @@ boxplot(LifeCycleSavings$dpi, main = "Per-Capita Income", ylab = "Income in $")
 
 # Joint distributions
 
-In order to identify potential explanatory variables for the aggregated savings, we look into correlations between the the demographic variables (*pop15* and *pop75*) as well as different specifications of the economic situation in the respective country (absolute (*dpi*) and relative (*ddpi*) measures of per-capita income).
+In order to identify potential explanatory variables for the *aggregated savings* variable, we look into correlations between the the demographic variables (*pop15* and *pop75*) as well as different specifications of the income in the respective country (absolute (*dpi*) and relative (*ddpi*) measures of per-capita income).
 
 ## Demographic factors
 
@@ -141,10 +141,11 @@ ggplot(LifeCycleSavings, aes(pop75, sr)) +
   xlab("Share of Population over 75 Years (%)") +
   ylab("Aggregated Savings")
 ```
+There seems to be a slightly negative correlation between *pop15* and *sr*, confirming the common wisdom that the younger the population, the lower the overall savings. At the same time, *pop75* and *sr* appear to be weakly positively correlated, indicating that aging populations tend to save more (this effect however seems to disappear for pop75>2%).
 
 ## Income factors
 
-Secondly, we look at the correlation of different income specifications (absolute per-capita income level *dpi* and relative per-capita income growth *ddpi*).
+In a next step, we attempt to better understand the relationship between savings and per-capita income by looking at the correlation of *aggregated savings* and absolute per-capita income level *dpi* and relative per-capita income growth *ddpi*.
 ```{r}
 ggplot(LifeCycleSavings, aes(dpi, sr)) + 
   geom_point() + 
@@ -160,3 +161,4 @@ ggplot(LifeCycleSavings, aes(ddpi, sr)) +
   xlab("Per-Capita Income Growth (%)") +
   ylab("Aggregated Savings")
 ```
+While absolute per-capita income level (*dpi*) seems to be positively correlated with aggregated savings for small values of *dpi* (less than $1250), this changes for larger values of per-capita income levels; this however seems to be largely driven by an outlier (the US). a similar finding provides the correlation plot between per-capita income growth (*ddpi*) and aggregate savings, although the correlation is more strongly positively correlated; again, this positive relationship disappears for very high growth rates of per-capita GDP (mainly caused by an outlier).

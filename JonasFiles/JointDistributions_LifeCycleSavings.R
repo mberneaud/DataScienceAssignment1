@@ -11,7 +11,6 @@ source("Bascis_LifeCycleSavings.R")
 # Joint distributions: Potential explanatory variables for savings ratio
 
 ## Correlation plots between Savings and Demographic proxies
-par(mfcol = c(1, 2))
 ggplot(LifeCycleSavings, aes(pop15, sr)) + 
   geom_point() + 
   geom_smooth() +
@@ -42,7 +41,6 @@ ggplot(LifeCycleSavings, aes(ddpi, sr)) +
   ggtitle("Correlation between Per-Capita Income Growth and Aggregated Savings") +
   xlab("Per-Capita Income Growth (%)") +
   ylab("Aggregated Savings")
-
 
 ## statistical tests of correlations
 
