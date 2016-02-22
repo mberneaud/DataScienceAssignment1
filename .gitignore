@@ -1,4 +1,5 @@
 # This will be the .gitignore file for the first project
 *.Rproject
 *.Rhistory
+*.RData
 .Rproj.user
