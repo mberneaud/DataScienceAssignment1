@@ -1,0 +1,72 @@
+---
+title: "Summary statitistics for the Orange data set"
+author: "Malte Berneaud-Koetz"
+date: "22 February 2016"
+output: pdf_document
+---
+
+## Tree growth over time 
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE)
+library(ggplot2)
+source("../summary_statistics.R")
+```
+
+```{r}
+ggplot(Orange, aes(x = age, y = circumference, colour = Tree)) + geom_line()
+```
+
+## Measures of central tendency: means
+
+Overall, the mean circumference of trees across the entire study period and across all trees is 115.86 centimeters. The means of the individual trees is found in the table below:
+
+| Tree   | Mean of circumference |
+|--------|-----------------------|
+| Tree 1 | 99.6 cm               |
+| Tree 2 | 135.29 cm             |
+| Tree 3 | 94.0 cm               |
+| Tree 4 | 139.29 cm             |
+| Tree 5 | 111.14 cm             |
+
+
+## Measures of central tendency: medians
+
+I calculated the medians across all trees, which is 115 cm. Additionally, I calculated the medians for each of the individual trees, as given in the table below:
+
+| Tree   | Median of circumference |
+|--------|-------------------------|
+| Tree 1 | 115 cm                  |
+| Tree 2 | 156 cm                  |
+| Tree 3 | 108 cm                  |
+| Tree 4 | 167 cm                  |
+| Tree 5 | 156 cm                  |
+
+## Measures of dispersion
+
+I calculated the standard deviation for the entire data set, which is 57.49. Moreover, I presented the standard deviations among the different trees below:
+
+| Tree   | Std. dev. of circumference |
+|--------|----------------------------|
+| Tree 1 | 43.29 cm                   |
+| Tree 2 | 66.24 cm                   |
+| Tree 3 | 42.98 cm                   |
+| Tree 4 | 71.90 cm                   |
+| Tree 5 | 58.86 cm                   |
+
+## All summary statistics in one graph
+
+```{r}
+barplot(summary.matrix, beside = TRUE,
+        main = "Summary statistics for circumference of all trees",
+        xlab = "Name of summary statistic",
+        ylab = "Tree trunk circumference",
+        names.arg = names(summary.df$`Tree ID`))
+```
+
+## Questions & Answers
+Questions? 
+
+Points of critique? 
+
+Suggestions? 
