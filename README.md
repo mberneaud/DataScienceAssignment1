@@ -26,6 +26,9 @@ Each pair will create a **new public GitHub repository**
 
 **Deadline: March 4th 2016**
 
+# Content of the repo
+We have worked on two different datasets. The _LifeCycleSavings_ data set on the savings ratio from 1960 to 1970, and the _Orange_ data set which contains data on the growth of Orange trees. Analyses of the two different data sets is done in two respective folders, named [JonasFiles](./JonasFiles) which contains the analysis of life cycle savings data and [Orange](./Orange), which contains the analysis of Orange tree data.
+
 ## Collaborators
 * Jonas Markgraf [GitHub](https://github.com/jmarkgraf "GitHub")
 * Malte Berneaud-Kötz [GitHub](https://github.com/mberneaud "GitHub")

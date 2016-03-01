@@ -6,6 +6,22 @@ Orange <- Orange
 data("Orange")  # to create a promise of the data
 ```
 
+## Description of the data set
+_Taken from the R documentation_
+
+>The Orange data frame has 35 rows and 3 columns of records of the growth of orange trees.
+
+### Description of variables
+>Tree
+  >an ordered factor indicating the tree on which the measurement is made. The ordering is according to increasing maximum diameter.
+
+>age
+  >a numeric vector giving the age of the tree (days since 1968/12/31)
+
+>circumference
+  >a numeric vector of trunk circumferences (mm). This is probably “circumference at breast height”, a standard measurement in forestry.
+
+
 ## Source files in the analysis
 * **[Summary statistics](./summary_statistics.R)**: contains some really basic summary statistics
 * **[Graph of circumference over time](./graph_circumference_over_time.R)**: contains code for creating the .png graph in this folder
@@ -57,19 +73,3 @@ For easier understanding, I graphed the growth of the different trees over time
 Moreover, I also graphed all the summary statistics in the previous sections into a single bar graph to better show differences between the individual trees. Unfortunately, I did not manage yet to include a legend that explains which shade of gray corresponds to which tree number.
 
 ![Summary statistics plotted](https://raw.githubusercontent.com/mberneaud/DataScienceAssignment1/master/Orange/summaries_graphed.png)
-
-
-## Description of the data set
-_Taken from the R documentation_
-
->The Orange data frame has 35 rows and 3 columns of records of the growth of orange trees.
-
-### Description of variables
->Tree
-  >an ordered factor indicating the tree on which the measurement is made. The ordering is according to increasing maximum diameter.
-
->age
-  >a numeric vector giving the age of the tree (days since 1968/12/31)
-
->circumference
-  >a numeric vector of trunk circumferences (mm). This is probably “circumference at breast height”, a standard measurement in forestry.
