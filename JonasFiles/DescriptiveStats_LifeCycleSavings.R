@@ -36,15 +36,18 @@ hist(LifeCycleSavings$dpi,
      main="Per-Capita Income Distribution", 
      xlab="Per-Capita Income", 
      ylab="Number of Countries")
+dev.print(png, "Histogramdpi.png", width = 1024, height = 720)
 hist(LifeCycleSavings$sr, 
      main="Aggregated Savings Distribution", 
      xlab="Aggregated Savings", 
      ylab="Number of Countries")
+dev.print(png, "Histogramsr.png", width = 1024, height = 720)
 
 hist(LifeCycleSavings$ddpi, 
      main="Distribution of Per-Capita Income Growth", 
      xlab="% growth of per-capita GDP", 
      ylab="Number of Countries")
+dev.print(png, "Histogramddpi.png", width = 1024, height = 720)
 
 # Measures of dispersion (standard deviation, range, IQR, boxplots)
 
@@ -64,6 +67,14 @@ for (i in 1:5) {
     cat()
 }
 
+## loop for variance
+for (i in 1:5) {
+  LifeCycleSavings[, i] %>%
+    var() %>%
+    paste(names(LifeCycleSavings)[i], ., "\2n") %>%
+    cat()
+}
+
 ## range for 2 key variables
 range(LifeCycleSavings$sr)
 range(LifeCycleSavings$dpi)
@@ -74,6 +85,10 @@ IQR(LifeCycleSavings$dpi)
 
 ## boxplots for key variables: Aggregated Savings and Per-Capita Income
 par(mfcol = c(1, 2))
-boxplot(LifeCycleSavings$sr)
-boxplot(LifeCycleSavings$dpi)
+boxplot(LifeCycleSavings$sr,
+        main= "Aggregated Savings")
+dev.print(png, "boxplotsr.png", width = 1024, height = 720)
+boxplot(LifeCycleSavings$dpi,
+        main= "Per-Capita Income")
+dev.print(png, "boxplotdpi", width = 1024, height = 720)
 
