@@ -32,22 +32,22 @@ for (i in 1:5) {
 
 ## General distribution of key variables
 par(mfcol = c(1, 2))
-hist(LifeCycleSavings$dpi, 
-     main="Per-Capita Income Distribution", 
-     xlab="Per-Capita Income", 
+hist(LifeCycleSavings$dpi,
+     main="Per-Capita Income Distribution",
+     xlab="Per-Capita Income",
      ylab="Number of Countries")
-dev.print(png, "Histogramdpi.png", width = 1024, height = 720)
-hist(LifeCycleSavings$sr, 
-     main="Aggregated Savings Distribution", 
-     xlab="Aggregated Savings", 
-     ylab="Number of Countries")
-dev.print(png, "Histogramsr.png", width = 1024, height = 720)
 
-hist(LifeCycleSavings$ddpi, 
-     main="Distribution of Per-Capita Income Growth", 
-     xlab="% growth of per-capita GDP", 
+hist(LifeCycleSavings$sr,
+     main="Aggregated Savings Distribution",
+     xlab="Aggregated Savings",
      ylab="Number of Countries")
-dev.print(png, "Histogramddpi.png", width = 1024, height = 720)
+
+
+hist(LifeCycleSavings$ddpi,
+     main="Distribution of Per-Capita Income Growth",
+     xlab="% growth of per-capita GDP",
+     ylab="Number of Countries")
+
 
 # Measures of dispersion (standard deviation, range, IQR, boxplots)
 
@@ -87,8 +87,6 @@ IQR(LifeCycleSavings$dpi)
 par(mfcol = c(1, 2))
 boxplot(LifeCycleSavings$sr,
         main= "Aggregated Savings")
-dev.print(png, "boxplotsr.png", width = 1024, height = 720)
+
 boxplot(LifeCycleSavings$dpi,
         main= "Per-Capita Income")
-dev.print(png, "boxplotdpi", width = 1024, height = 720)
-
